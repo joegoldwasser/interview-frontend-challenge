@@ -58,6 +58,12 @@ Build a related posts widget. The props and types are defined — implement the 
 
 ---
 
+## Browser Note
+
+**Please use Chrome.** StackBlitz has known issues with Firefox that may cause the editor or preview to not work correctly.
+
+If the page gets stuck loading, try a hard refresh (Cmd+Shift+R).
+
 ## Local Setup (if not using StackBlitz)
 
 ```bash
