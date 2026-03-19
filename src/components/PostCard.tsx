@@ -3,22 +3,31 @@
  *
  * This component displays a blog post card. It has 3 bugs — you can see
  * them in the browser. Find and fix each one.
+ *
+ * 1a: The title link points to the wrong URL
+ * 1b: Two of the fields are displaying each other's data
+ * 1c: The "NEW" badge shows on every card, even when it shouldn't
  */
+import { formatDate } from '../data/cms-helpers';
 
 interface PostCardProps {
   postSlug: string;
   title: string;
   excerpt: string;
   author: string;
+  category: string;
   publishedAt: string;
   isNew: boolean;
 }
 
-export default function PostCard({ postSlug, title, excerpt, author, publishedAt, isNew }: PostCardProps) {
+export default function PostCard({ postSlug, title, excerpt, author, category, publishedAt, isNew }: PostCardProps) {
   return (
     <div style={styles.card}>
       {/* Bug 1c */}
       <span style={styles.badge}>NEW</span>
+
+      {/* Bug 1b */}
+      <span style={styles.category}>{author}</span>
 
       <h3 style={styles.title}>
         {/* Bug 1a */}
@@ -30,10 +39,10 @@ export default function PostCard({ postSlug, title, excerpt, author, publishedAt
       <p style={styles.excerpt}>{excerpt}</p>
 
       <div style={styles.meta}>
-        <span>By {author}</span>
-        <span>&middot;</span>
         {/* Bug 1b */}
-        <span>{publishedAt}</span>
+        <span>By {category}</span>
+        <span>&middot;</span>
+        <span>{formatDate(publishedAt)}</span>
       </div>
     </div>
   );
@@ -60,8 +69,15 @@ const styles: Record<string, React.CSSProperties> = {
     textTransform: 'uppercase',
     letterSpacing: '0.05em',
   },
+  category: {
+    fontSize: '0.75rem',
+    fontWeight: 600,
+    textTransform: 'uppercase',
+    color: '#2563eb',
+    letterSpacing: '0.05em',
+  },
   title: {
-    margin: '0 0 0.5rem',
+    margin: '0.25rem 0 0.5rem',
     fontSize: '1.1rem',
     paddingRight: '3rem',
   },

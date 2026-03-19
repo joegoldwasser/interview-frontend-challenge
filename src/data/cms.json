@@ -126,6 +126,34 @@
       }
     },
     {
+      "id": "post-009",
+      "slug": "social-security-at-62",
+      "title": "Should You Take Social Security at 62?",
+      "author": "Steve Chen",
+      "publishedAt": "2026-03-15",
+      "category": "Social Security",
+      "excerpt": "Claiming early means smaller checks for life. But for some people, it's the smartest move. Here's how to decide.",
+      "body": null,
+      "seo": {
+        "title": "Social Security at 62 - Should You Claim Early? | Boldin",
+        "description": "Pros and cons of claiming Social Security at 62. Use our calculator to model the impact."
+      }
+    },
+    {
+      "id": "post-010",
+      "slug": "social-security-survivor-benefits",
+      "title": "Social Security Survivor Benefits: What Your Spouse Needs to Know",
+      "author": "Steve Chen",
+      "publishedAt": "2026-03-18",
+      "category": "Social Security",
+      "excerpt": "When a spouse passes, the surviving partner may be entitled to significant Social Security benefits. Planning ahead matters.",
+      "body": null,
+      "seo": {
+        "title": "Social Security Survivor Benefits Guide | Boldin",
+        "description": "Understanding Social Security survivor benefits and how to plan for them."
+      }
+    },
+    {
       "id": "post-006",
       "slug": "tax-loss-harvesting",
       "title": "Tax-Loss Harvesting: A Beginner's Guide",

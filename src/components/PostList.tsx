@@ -1,15 +1,16 @@
 /**
- * Task 3: Extend This Component
+ * Task 2: Extend This Component
  *
  * This component renders category tabs and blog post cards, but they're
- * not connected. The tabs don't filter anything and the search doesn't exist yet.
+ * not connected. The tabs don't filter anything and the search doesn't work yet.
  * Wire them up in order:
  *
- * 3a: Make the category tabs work — click a tab, filter the posts
- * 3b: Wire up the search input to filter by title and excerpt
- * 3c: Show "No posts found" when filters match nothing
+ * 2a: Make the category tabs work — click a tab, filter the posts
+ * 2b: Wire up the search input to filter by title and excerpt
+ * 2c: Show "No posts found" when filters match nothing
  */
 import { useState } from 'react';
+import { formatDate } from '../data/cms-helpers';
 import type { BlogPostSummary } from '../data/cms-helpers';
 
 interface PostListProps {
@@ -23,14 +24,14 @@ export default function PostList({ posts }: PostListProps) {
   // Derive unique categories from the data
   const categories = ['All', ...Array.from(new Set(posts.map((p) => p.category)))];
 
-  // TODO (3a): Filter posts based on activeCategory.
+  // TODO (2a): Filter posts based on activeCategory.
   //   When "All" is selected, show all posts.
   //   Otherwise, show only posts matching the active category.
   const filteredPosts = posts;
 
   return (
     <div>
-      {/* Search input — TODO (3b): wire this up to filter posts by title and excerpt */}
+      {/* Search input — TODO (2b): wire this up to filter posts by title and excerpt */}
       <input
         type="text"
         placeholder="Search articles..."
@@ -43,8 +44,8 @@ export default function PostList({ posts }: PostListProps) {
         {categories.map((category) => (
           <button
             key={category}
-            // TODO (3a): Add onClick to set the active category
-            // TODO (3a): Apply styles.activeTab when this category is active, styles.tab otherwise
+            // TODO (2a): Add onClick to set the active category
+            // TODO (2a): Apply styles.activeTab when this category is active, styles.tab otherwise
             style={styles.tab}
           >
             {category}
@@ -53,7 +54,7 @@ export default function PostList({ posts }: PostListProps) {
       </div>
 
       {/* Post cards */}
-      {/* TODO (3c): Show "No posts found" when filteredPosts is empty */}
+      {/* TODO (2c): Show "No posts found" when filteredPosts is empty */}
       <div>
         {filteredPosts.map((post) => (
           <div key={post.slug} style={styles.card}>
@@ -65,12 +66,7 @@ export default function PostList({ posts }: PostListProps) {
             </h3>
             <p style={styles.cardExcerpt}>{post.excerpt}</p>
             <div style={styles.cardMeta}>
-              {post.author} &middot;{' '}
-              {new Date(post.publishedAt).toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-              })}
+              {post.author} &middot; {formatDate(post.publishedAt)}
             </div>
           </div>
         ))}

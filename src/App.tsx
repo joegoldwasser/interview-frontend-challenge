@@ -27,6 +27,7 @@ export default function App() {
           title={firstPost.title}
           excerpt={firstPost.excerpt}
           author={firstPost.author}
+          category={firstPost.category}
           publishedAt={firstPost.publishedAt}
           isNew={true}
         />
@@ -35,21 +36,22 @@ export default function App() {
           title={secondPost.title}
           excerpt={secondPost.excerpt}
           author={secondPost.author}
+          category={secondPost.category}
           publishedAt={secondPost.publishedAt}
           isNew={false}
         />
       </section>
 
       <section style={styles.section}>
-        <h2 style={styles.sectionTitle}>Task 2: Improve This Component</h2>
-        <p style={styles.taskFile}>File: <code style={styles.code}>src/components/NewsletterSignup.tsx</code></p>
-        <NewsletterSignup />
+        <h2 style={styles.sectionTitle}>Task 2: Extend This Component</h2>
+        <p style={styles.taskFile}>File: <code style={styles.code}>src/components/PostList.tsx</code></p>
+        <PostList posts={posts} />
       </section>
 
       <section style={styles.section}>
-        <h2 style={styles.sectionTitle}>Task 3: Extend This Component</h2>
-        <p style={styles.taskFile}>File: <code style={styles.code}>src/components/PostList.tsx</code></p>
-        <PostList posts={posts} />
+        <h2 style={styles.sectionTitle}>Task 3: Improve This Component</h2>
+        <p style={styles.taskFile}>File: <code style={styles.code}>src/components/NewsletterSignup.tsx</code></p>
+        <NewsletterSignup />
       </section>
 
       <section style={{ ...styles.section, borderBottom: 'none' }}>

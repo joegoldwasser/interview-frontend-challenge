@@ -107,6 +107,17 @@ export function getSiteInfo() {
 }
 
 /**
+ * Formats a date string like "2026-01-15" into "January 15, 2026".
+ */
+export function formatDate(dateString: string): string {
+  return new Date(dateString).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+}
+
+/**
  * Simulates a newsletter signup API call.
  * Returns after a 1 second delay.
  * Use "error@test.com" to simulate a failure.

@@ -11,8 +11,8 @@ Each component file has a comment at the top explaining what to do, and TODO com
 | File | What it does |
 |---|---|
 | `src/components/PostCard.tsx` | Task 1 — blog post card with bugs to fix |
-| `src/components/NewsletterSignup.tsx` | Task 2 — working form with quality issues to improve |
-| `src/components/PostList.tsx` | Task 3 — post list with tabs to wire up |
+| `src/components/PostList.tsx` | Task 2 — post list with tabs to wire up |
+| `src/components/NewsletterSignup.tsx` | Task 3 — working form with quality issues to improve |
 | `src/components/RelatedPosts.tsx` | Task 4 — empty component to build (stretch) |
 | `src/data/cms-helpers.ts` | Data helpers and types (read-only reference) |
 
@@ -25,28 +25,27 @@ Each component file has a comment at the top explaining what to do, and TODO com
 This card component has 3 visible bugs. Look at the cards on the page, then find and fix each bug in the code.
 
 - **1a:** The title link points to the wrong URL
-- **1b:** The date isn't formatted nicely
+- **1b:** Two of the fields are displaying each other's data
 - **1c:** The "NEW" badge shows on every card, even when it shouldn't
 
-## Task 2: Improve This Component (~10 min)
-
-**File:** `src/components/NewsletterSignup.tsx`
-
-This form works but has quality issues. Fix them in order:
-
-- **2a:** Add email validation — it currently submits empty/invalid emails
-- **2b:** Wire up the status state so the user gets feedback when they submit
-- **2c:** Look at how `isValid` is computed — anything you'd change?
-
-## Task 3: Extend This Component (~10 min)
+## Task 2: Extend This Component (~10 min)
 
 **File:** `src/components/PostList.tsx`
 
 The tabs and cards render, but nothing is wired together. Connect them:
 
-- **3a:** Make the category tabs filter posts when clicked
-- **3b:** Wire up the search input to filter by title and excerpt
-- **3c:** Show "No posts found" when nothing matches
+- **2a:** Make the category tabs filter posts when clicked
+- **2b:** Wire up the search input to filter by title and excerpt
+- **2c:** Show "No posts found" when nothing matches
+
+## Task 3: Improve This Component (~10 min)
+
+**File:** `src/components/NewsletterSignup.tsx`
+
+This form works but has quality issues. Fix them in order:
+
+- **3a:** The form submits even with invalid emails — add a validation check and show the error
+- **3b:** Wire up the status state so the user gets feedback when they submit
 
 ## Task 4: Build from Scratch (~5 min, stretch)
 
