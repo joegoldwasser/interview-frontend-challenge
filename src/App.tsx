@@ -60,40 +60,42 @@ export default function App() {
           </button>
         </nav>
 
-        {currentTask === 0 && (
-          <>
-            <PostCard
-              postSlug={firstPost.slug}
-              title={firstPost.title}
-              excerpt={firstPost.excerpt}
-              author={firstPost.author}
-              category={firstPost.category}
-              publishedAt={firstPost.publishedAt}
-              isNew={true}
+        <div style={styles.componentWrapper}>
+          {currentTask === 0 && (
+            <>
+              <PostCard
+                postSlug={firstPost.slug}
+                title={firstPost.title}
+                excerpt={firstPost.excerpt}
+                author={firstPost.author}
+                category={firstPost.category}
+                publishedAt={firstPost.publishedAt}
+                isNew={true}
+              />
+              <PostCard
+                postSlug={secondPost.slug}
+                title={secondPost.title}
+                excerpt={secondPost.excerpt}
+                author={secondPost.author}
+                category={secondPost.category}
+                publishedAt={secondPost.publishedAt}
+                isNew={false}
+              />
+            </>
+          )}
+
+          {currentTask === 1 && <PostList posts={posts} />}
+
+          {currentTask === 2 && <NewsletterSignup />}
+
+          {currentTask === 3 && (
+            <RelatedPosts
+              currentSlug={firstPost.slug}
+              currentCategory={firstPost.category}
+              allPosts={posts}
             />
-            <PostCard
-              postSlug={secondPost.slug}
-              title={secondPost.title}
-              excerpt={secondPost.excerpt}
-              author={secondPost.author}
-              category={secondPost.category}
-              publishedAt={secondPost.publishedAt}
-              isNew={false}
-            />
-          </>
-        )}
-
-        {currentTask === 1 && <PostList posts={posts} />}
-
-        {currentTask === 2 && <NewsletterSignup />}
-
-        {currentTask === 3 && (
-          <RelatedPosts
-            currentSlug={firstPost.slug}
-            currentCategory={firstPost.category}
-            allPosts={posts}
-          />
-        )}
+          )}
+        </div>
       </section>
 
       <nav style={styles.nav}>
@@ -167,6 +169,11 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: '0.85rem',
     color: '#6b7280',
     margin: '0 0 1rem',
+  },
+  componentWrapper: {
+    border: '1px dashed #d1d5db',
+    borderRadius: '8px',
+    padding: '1.5rem',
   },
   nav: {
     display: 'flex',
