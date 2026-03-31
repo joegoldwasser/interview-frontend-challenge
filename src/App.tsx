@@ -3,6 +3,7 @@ import PostCard from './components/PostCard';
 import NewsletterSignup from './components/NewsletterSignup';
 import PostList from './components/PostList';
 import RelatedPosts from './components/RelatedPosts';
+import CommentModeration from './components/CommentModeration';
 import { getPublishedPostSummaries } from './data/cms-helpers';
 
 const posts = getPublishedPostSummaries();
@@ -14,6 +15,7 @@ const TASKS = [
   { title: 'Task 2: Extend This Component', file: 'src/components/PostList.tsx' },
   { title: 'Task 3: Improve This Component', file: 'src/components/NewsletterSignup.tsx' },
   { title: 'Task 4: Build This Component (stretch)', file: 'src/components/RelatedPosts.tsx' },
+  { title: 'Task 5: Review & Improve This Component', file: 'src/components/CommentModeration.tsx' },
 ];
 
 export default function App() {
@@ -95,6 +97,8 @@ export default function App() {
               allPosts={posts}
             />
           )}
+
+          {currentTask === 4 && <CommentModeration />}
         </div>
       </section>
 
