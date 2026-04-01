@@ -73,7 +73,7 @@ export default function App() {
           {currentTask === 0 && (
             <>
               <PostCard
-                postSlug={firstPost.slug}
+                slug={firstPost.slug}
                 title={firstPost.title}
                 excerpt={firstPost.excerpt}
                 author={firstPost.author}
@@ -82,7 +82,7 @@ export default function App() {
                 isNew={firstPost.isNew}
               />
               <PostCard
-                postSlug={secondPost.slug}
+                slug={secondPost.slug}
                 title={secondPost.title}
                 excerpt={secondPost.excerpt}
                 author={secondPost.author}

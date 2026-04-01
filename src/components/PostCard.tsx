@@ -8,10 +8,10 @@
  * 1b: Two of the fields are displaying each other's data
  * 1c: The "NEW" badge shows on every card, even when it shouldn't
  */
-import { formatDate } from '../data/cms-helpers';
+import { formatDate } from "../data/cms-helpers";
 
 interface PostCardProps {
-  postSlug: string;
+  slug: string;
   title: string;
   excerpt: string;
   author: string;
@@ -20,18 +20,26 @@ interface PostCardProps {
   isNew: boolean;
 }
 
-export default function PostCard({ postSlug, title, excerpt, author, category, publishedAt, isNew }: PostCardProps) {
+export default function PostCard({
+  slug,
+  title,
+  excerpt,
+  author,
+  category,
+  publishedAt,
+  isNew,
+}: PostCardProps) {
   return (
     <div style={styles.card}>
       {/* Bug 1c */}
-      <span style={styles.badge}>NEW</span>
+      {isNew && <span style={styles.badge}>NEW</span>}
 
       {/* Bug 1b */}
-      <span style={styles.category}>{author}</span>
+      <span style={styles.category}>{category}</span>
 
       <h3 style={styles.title}>
         {/* Bug 1a */}
-        <a href={`/blog/${title}`} style={styles.link}>
+        <a href={`/blog/${slug}`} style={styles.link}>
           {title}
         </a>
       </h3>
@@ -40,7 +48,7 @@ export default function PostCard({ postSlug, title, excerpt, author, category, p
 
       <div style={styles.meta}>
         {/* Bug 1b */}
-        <span>By {category}</span>
+        <span>By {author}</span>
         <span>&middot;</span>
         <span>{formatDate(publishedAt)}</span>
       </div>
@@ -50,50 +58,50 @@ export default function PostCard({ postSlug, title, excerpt, author, category, p
 
 const styles: Record<string, React.CSSProperties> = {
   card: {
-    border: '1px solid #e5e7eb',
-    borderRadius: '8px',
-    padding: '1.25rem',
-    marginBottom: '1rem',
-    position: 'relative',
+    border: "1px solid #e5e7eb",
+    borderRadius: "8px",
+    padding: "1.25rem",
+    marginBottom: "1rem",
+    position: "relative",
   },
   badge: {
-    position: 'absolute',
-    top: '1rem',
-    right: '1rem',
-    backgroundColor: '#2563eb',
-    color: '#fff',
-    fontSize: '0.7rem',
+    position: "absolute",
+    top: "1rem",
+    right: "1rem",
+    backgroundColor: "#2563eb",
+    color: "#fff",
+    fontSize: "0.7rem",
     fontWeight: 700,
-    padding: '0.2rem 0.5rem',
-    borderRadius: '4px',
-    textTransform: 'uppercase',
-    letterSpacing: '0.05em',
+    padding: "0.2rem 0.5rem",
+    borderRadius: "4px",
+    textTransform: "uppercase",
+    letterSpacing: "0.05em",
   },
   category: {
-    fontSize: '0.75rem',
+    fontSize: "0.75rem",
     fontWeight: 600,
-    textTransform: 'uppercase',
-    color: '#2563eb',
-    letterSpacing: '0.05em',
+    textTransform: "uppercase",
+    color: "#2563eb",
+    letterSpacing: "0.05em",
   },
   title: {
-    margin: '0.25rem 0 0.5rem',
-    fontSize: '1.1rem',
-    paddingRight: '3rem',
+    margin: "0.25rem 0 0.5rem",
+    fontSize: "1.1rem",
+    paddingRight: "3rem",
   },
   link: {
-    color: '#1a1a1a',
-    textDecoration: 'none',
+    color: "#1a1a1a",
+    textDecoration: "none",
   },
   excerpt: {
-    color: '#4b5563',
-    margin: '0.5rem 0',
-    fontSize: '0.95rem',
+    color: "#4b5563",
+    margin: "0.5rem 0",
+    fontSize: "0.95rem",
   },
   meta: {
-    fontSize: '0.85rem',
-    color: '#6b7280',
-    display: 'flex',
-    gap: '0.5rem',
+    fontSize: "0.85rem",
+    color: "#6b7280",
+    display: "flex",
+    gap: "0.5rem",
   },
 };
