@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import PostCard from './components/PostCard';
 import NewsletterSignup from './components/NewsletterSignup';
 import PostList from './components/PostList';
@@ -19,8 +19,17 @@ const TASKS = [
 ];
 
 export default function App() {
-  const [currentTask, setCurrentTask] = useState(0);
+  const [currentTask, setCurrentTask] = useState(() => {
+    const saved = localStorage.getItem('currentTask');
+    const index = saved ? Number(saved) : 0;
+    return index >= 0 && index < TASKS.length ? index : 0;
+  });
   const [resetKey, setResetKey] = useState(0);
+
+  useEffect(() => {
+    localStorage.setItem('currentTask', String(currentTask));
+  }, [currentTask]);
+
   const task = TASKS[currentTask];
 
   return (
