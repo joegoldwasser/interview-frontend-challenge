@@ -126,7 +126,7 @@ export default function CommentModeration() {
             <div style={styles.rowMeta}>
               <strong>{comment.author}</strong>
               <span style={styles.date}>{new Date(comment.createdAt).toLocaleDateString()}</span>
-              <span style={styles.statusBadge(comment.status)}>{comment.status}</span>
+              <span style={statusBadge(comment.status)}>{comment.status}</span>
             </div>
           </div>
           <p style={styles.content}>{comment.content}</p>
@@ -161,7 +161,20 @@ export default function CommentModeration() {
   );
 }
 
-const styles: Record<string, React.CSSProperties | ((...args: never[]) => React.CSSProperties)> = {
+function statusBadge(status: CommentStatus): React.CSSProperties {
+  return {
+    fontSize: '0.75rem',
+    fontWeight: 600,
+    padding: '0.15rem 0.5rem',
+    borderRadius: '9999px',
+    textTransform: 'uppercase',
+    letterSpacing: '0.03em',
+    backgroundColor: status === 'approved' ? '#dcfce7' : status === 'spam' ? '#fee2e2' : '#fef9c3',
+    color: status === 'approved' ? '#16a34a' : status === 'spam' ? '#dc2626' : '#a16207',
+  };
+}
+
+const styles: Record<string, React.CSSProperties> = {
   tabs: {
     display: 'flex',
     gap: '0.5rem',
@@ -218,16 +231,6 @@ const styles: Record<string, React.CSSProperties | ((...args: never[]) => React.
     color: '#6b7280',
     fontSize: '0.85rem',
   },
-  statusBadge: (status: CommentStatus): React.CSSProperties => ({
-    fontSize: '0.75rem',
-    fontWeight: 600,
-    padding: '0.15rem 0.5rem',
-    borderRadius: '9999px',
-    textTransform: 'uppercase',
-    letterSpacing: '0.03em',
-    backgroundColor: status === 'approved' ? '#dcfce7' : status === 'spam' ? '#fee2e2' : '#fef9c3',
-    color: status === 'approved' ? '#16a34a' : status === 'spam' ? '#dc2626' : '#a16207',
-  }),
   content: {
     margin: '0 0 0.5rem',
     fontSize: '0.95rem',
