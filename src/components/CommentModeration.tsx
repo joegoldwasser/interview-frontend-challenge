@@ -77,7 +77,7 @@ export default function CommentModeration() {
 
   return (
     <div>
-      {/* BUG (a11y): filter tabs are divs, not buttons — no keyboard nav, no roles */}
+      {/* BUG (a11y): try navigating these tabs with only the keyboard */}
       <div style={styles.tabs}>
         {FILTERS.map(f => (
           <div
@@ -91,7 +91,7 @@ export default function CommentModeration() {
       </div>
 
       <div style={styles.bulkBar}>
-        {/* BUG (a11y): checkbox has no associated label */}
+        {/* BUG (a11y): what does a screen reader announce for this checkbox? */}
         <input
           type="checkbox"
           checked={allSelected}
@@ -132,7 +132,7 @@ export default function CommentModeration() {
           <p style={styles.content}>{comment.content}</p>
           <div style={styles.rowFooter}>
             <span style={styles.postRef}>on: {comment.postTitle}</span>
-            {/* BUG (a11y): buttons say "Approve" etc. with no context about which comment */}
+            {/* BUG (a11y): what does a screen reader user hear when tabbing through these? */}
             <div style={styles.actions}>
               {comment.status !== 'approved' && (
                 <button style={styles.approveBtn} onClick={() => handleModerate(comment.id, 'approved')}>
