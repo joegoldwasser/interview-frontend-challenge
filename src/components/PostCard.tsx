@@ -32,14 +32,14 @@ export default function PostCard({
   return (
     <div style={styles.card}>
       {/* Bug 1c */}
-      {isNew && <span style={styles.badge}>NEW</span>}
+      <span style={styles.badge}>NEW</span>
 
       {/* Bug 1b */}
-      <span style={styles.category}>{category}</span>
+      <span style={styles.category}>{author}</span>
 
       <h3 style={styles.title}>
         {/* Bug 1a */}
-        <a href={`/blog/${slug}`} style={styles.link}>
+        <a href={`/blog/${title}`} style={styles.link}>
           {title}
         </a>
       </h3>
@@ -48,7 +48,7 @@ export default function PostCard({
 
       <div style={styles.meta}>
         {/* Bug 1b */}
-        <span>By {author}</span>
+        <span>By {category}</span>
         <span>&middot;</span>
         <span>{formatDate(publishedAt)}</span>
       </div>
