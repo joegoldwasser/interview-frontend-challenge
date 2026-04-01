@@ -79,7 +79,7 @@ export default function App() {
                 author={firstPost.author}
                 category={firstPost.category}
                 publishedAt={firstPost.publishedAt}
-                isNew={true}
+                isNew={firstPost.isNew}
               />
               <PostCard
                 postSlug={secondPost.slug}
@@ -88,7 +88,7 @@ export default function App() {
                 author={secondPost.author}
                 category={secondPost.category}
                 publishedAt={secondPost.publishedAt}
-                isNew={false}
+                isNew={secondPost.isNew}
               />
             </>
           )}

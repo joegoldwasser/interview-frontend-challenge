@@ -13,6 +13,7 @@ export interface BlogPost {
   publishedAt: string | null;
   category: string | null;
   excerpt: string | null;
+  isNew: boolean;
   body: ContentBlock[] | null;
   seo: SeoData | null;
   _deleted?: boolean;
@@ -63,6 +64,7 @@ export interface BlogPostSummary {
   category: string;
   author: string;
   publishedAt: string;
+  isNew: boolean;
 }
 
 export function getAllBlogPosts(): BlogPost[] {
@@ -83,6 +85,7 @@ export function getPublishedPostSummaries(): BlogPostSummary[] {
     category: p.category!,
     author: p.author!,
     publishedAt: p.publishedAt!,
+    isNew: p.isNew,
   }));
 }
 
