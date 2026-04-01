@@ -2,7 +2,7 @@
 
 ## How This Works
 
-The page has four sections, each with a React component that needs work. **You only need to edit files in `src/components/`** — everything else is already wired up.
+The page has five tasks, each with a React component that needs work. **You only need to edit files in `src/components/`** — everything else is already wired up. Use the Previous/Next buttons to navigate between tasks.
 
 Each component file has a comment at the top explaining what to do, and TODO comments at the specific spots where code needs to change.
 
@@ -14,6 +14,7 @@ Each component file has a comment at the top explaining what to do, and TODO com
 | `src/components/PostList.tsx` | Task 2 — post list with tabs to wire up |
 | `src/components/NewsletterSignup.tsx` | Task 3 — working form with quality issues to improve |
 | `src/components/RelatedPosts.tsx` | Task 4 — empty component to build (stretch) |
+| `src/components/CommentModeration.tsx` | Task 5 — working component with issues to identify and fix |
 | `src/data/cms-helpers.ts` | Data helpers and types (read-only reference) |
 
 ---
@@ -55,6 +56,14 @@ Build a related posts widget. The props and types are defined — implement the 
 
 - **4a:** Show up to 3 posts in the same category, excluding the current post
 - **4b:** Handle the case where there are no related posts
+
+## Task 5: Review & Improve This Component (~20 min, Principal-level)
+
+**File:** `src/components/CommentModeration.tsx`
+
+This comment moderation panel works in the happy path, but has issues across three categories: **performance**, **accessibility**, and **error handling**.
+
+Review the code, identify problems, and fix as many as you can. There are no TODO comments — finding the issues is part of the task.
 
 ---
 
