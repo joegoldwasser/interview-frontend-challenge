@@ -52,16 +52,16 @@ export default function CommentModeration() {
     }
   };
 
-  // BUG (error + perf): captures `comments` from closure instead of using
-  // functional updater — concurrent actions overwrite each other.
-  // Also no loading state, no disable during pending, no rollback on failure.
+  // BUG (error + perf): no loading indicator, buttons stay clickable during
+  // API call, no error handling on failure, and captures `comments` from
+  // closure instead of using functional updater.
   const handleModerate = async (commentId: string, newStatus: CommentStatus) => {
-    const updated = comments.map(c =>
-      c.id === commentId ? { ...c, status: newStatus } : c
-    );
-    setComments(updated);
     try {
       await moderateComment(commentId, newStatus);
+      const updated = comments.map(c =>
+        c.id === commentId ? { ...c, status: newStatus } : c
+      );
+      setComments(updated);
     } catch (error) {
       console.error('Failed to moderate comment:', error);
     }

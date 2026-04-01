@@ -44,6 +44,6 @@ export function moderateComment(
       } else {
         resolve({ success: true });
       }
-    }, 600 + Math.random() * 400);
+    }, 2000 + Math.random() * 1000);
   });
 }
