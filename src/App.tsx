@@ -20,6 +20,7 @@ const TASKS = [
 
 export default function App() {
   const [currentTask, setCurrentTask] = useState(0);
+  const [resetKey, setResetKey] = useState(0);
   const task = TASKS[currentTask];
 
   return (
@@ -51,6 +52,12 @@ export default function App() {
             ← Previous
           </button>
           <button
+            onClick={() => setResetKey(k => k + 1)}
+            style={styles.resetButton}
+          >
+            Reset
+          </button>
+          <button
             onClick={() => setCurrentTask(currentTask + 1)}
             disabled={currentTask === TASKS.length - 1}
             style={{
@@ -62,7 +69,7 @@ export default function App() {
           </button>
         </nav>
 
-        <div style={styles.componentWrapper}>
+        <div key={resetKey} style={styles.componentWrapper}>
           {currentTask === 0 && (
             <>
               <PostCard
@@ -173,6 +180,15 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: '0.85rem',
     color: '#6b7280',
     margin: '0 0 1rem',
+  },
+  resetButton: {
+    padding: '0.5rem 1rem',
+    fontSize: '0.8rem',
+    border: '1px solid #d1d5db',
+    borderRadius: '6px',
+    background: '#fff',
+    color: '#6b7280',
+    cursor: 'pointer',
   },
   componentWrapper: {
     border: '1px dashed #d1d5db',
