@@ -25,7 +25,7 @@ export const MOCK_COMMENTS: Comment[] = [
   { id: 'comment-013', postTitle: 'Beyond the 4% Rule: Smarter Retirement Spending', author: 'sell_now_bot', content: 'I made $10,000 in one week using this ONE TRICK! Click my profile for details!!!', createdAt: '2026-03-15', status: 'spam' },
   { id: 'comment-014', postTitle: 'Estate Planning 101: What Every Retiree Needs', author: 'Karen Okonkwo', content: 'We just updated our trust after reading this. The beneficiary designation section was eye-opening.', createdAt: '2026-03-18', status: 'approved' },
   { id: 'comment-015', postTitle: 'Estate Planning 101: What Every Retiree Needs', author: 'Michael Torres', content: "Does a living trust really avoid probate in all states? Our attorney in Texas said it depends.", createdAt: '2026-03-20', status: 'pending' },
-  { id: 'comment-016', postTitle: 'Social Security Survivor Benefits: What Your Spouse Needs to Know', author: 'Ann Bergstrom', content: 'I lost my husband last year and had no idea I could switch to his benefit. Thank you for this article.', createdAt: '2026-03-22', status: 'pending' },
+  { id: 'comment-016', postTitle: 'Social Security Survivor Benefits: What Your Spouse Needs to Know', author: 'Ann Bergstrom', content: 'I lost my husband last year and had no idea I could switch to his benefit. Thank you for this article.', createdAt: '2026-03-26', status: 'pending' },
 ];
 
 /**
